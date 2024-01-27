@@ -1,0 +1,147 @@
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.4 in,top=0.4in,right=0.4 in,bottom=0.4in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\name{Ryan Cohen} % Your name
+% You can merge both of these into a single line, if you do not have a website.
+\address{+1(781) 724-9973 \\ Scituate, MA}
+\address{\href{mailto:rcohenprogramming@gmail.com}{rcohenprogramming@gmail.com} \\ \href{https://github.com/raccog}{https://github.com/raccog}}  %
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{PERSONAL PROJECTS}
+\begin{itemize}
+	\itemsep -8pt{}
+	\item \href{https://github.com/raccog/caliga-bootloader}{\textbf{Caliga Bootloader}}\quad A boot loader project where I learned how to get information from and interact with modern hardware. Also learned how to interact with firmware such as UEFI and create a physical memory manager.
+	\item \href{https://github.com/raccog/RyanOS}{\textbf{RyanOS}}\quad An operating system project with a custom UEFI boot loader. I learned how to run my operating system on emulators and on real hardware. Worked on a libc implementation and a UEFI interface library.
+	\item \href{https://github.com/raccog/toy-bootboot}{\textbf{toy-bootboot}}\quad A project to re-implement a boot loader protocol on my own. Learned how to adhere to a protocol and how to create and run a UEFI boot loader.
+	\item \href{https://github.com/raccog/chip8-rp2040}{\textbf{chip8-rp2040}}\quad An emulator for the CHIP-8 interpreted language on a microcontroller with an OLED screen.
+	\item \href{https://github.com/raccog/ssd1306-rp2040}{\textbf{ssd1306-rp2040}}\quad A library for interfacing with a 128x64 OLED screen. Used in chip8-rp2040.
+	\item \href{https://github.com/raccog/rraytracer}{\textbf{rraytracer}}\quad A ray tracer implementation based on the book "Ray Tracing in One Weekend" by Peter Shirley. Learned how a 2D image can be generated from a scene of 3D models using linear algebra.
+	\item \href{https://github.com/raccog/rtga}{\textbf{rtga}}\quad A C library for interfacing with a TGA image file. Used in rraytracer for generating ray-traced images.
+\end{itemize}
+\end{rSection}
+
+\begin{rSection}{OPEN SOURCE CONTRIBUTIONS}
+	
+	\vspace{-1.25em}
+	\item
+	\href{https://github.com/mortbopet/Ripes}{\textbf{Ripes}}
+	(\href{https://github.com/mortbopet/Ripes/commits/master/?author=raccog}{My Commits})
+	\vspace{-.75em}
+	\begin{itemize}
+		\itemsep -8pt{}
+		\item Currently working on dynamic and filterable Qt interface for users to interact with a database of generalized ISA instructions.
+		\href{https://github.com/mortbopet/Ripes/issues/297}{(Github Issue)}
+		\href{https://github.com/mortbopet/Ripes/pull/329}{(Github Pull Request)}
+		\item Assisted in developing a generalized ISA assembler.
+		\item Developed a library for defining generalized ISA information and instruction details at compile-time.
+		\item Fixed bugs and submitted bug reports.
+	\end{itemize}
+	\vspace{-.75em}
+	\item  \href{https://git.savannah.gnu.org/cgit/grub.git}{\textbf{GRUB Boot Loader}}
+	\vspace{-.75em}
+	\begin{itemize}
+		\itemsep -8pt{}
+		\item Fixed two integer underflow vulnerabilities in the command line that affected all supported systems.
+		\href{https://git.savannah.gnu.org/gitweb/?p=grub.git;a=commit;h=77afd25f8065bfbf5cc7848855006cd5260aeb9f}{(Commit)}
+		\item Fixed an out-of-bounds write vulnerability in the VGA text module affecting some BIOS systems.
+		\href{https://git.savannah.gnu.org/gitweb/?p=grub.git;a=commit;h=108a3865f43330b581d35b9cf6ecb1e0a1da5d49}{(Commit)}
+	\end{itemize}
+	\vspace{-.75em}
+	\item \href{https://github.com/limine-bootloader/limine}{\textbf{Limine Boot Loader}}
+	\vspace{-.75em}
+	\begin{itemize}
+		\itemsep -8pt{}
+		\item Fixed a bug. \href{https://github.com/limine-bootloader/limine/commit/07d8dd2c68aea2bd4a03e8b69a521c67abc1d618}{(Commit)}
+	\end{itemize}
+	\vspace{-.75em}
+	\item \href{https://github.com/rust-osdev/uefi-rs}{\textbf{UEFI-rs}}
+	\vspace{-.75em}
+	\begin{itemize}
+		\itemsep -8pt{}
+	
+		\itemsep -8pt{}	\item Contributed documentation to understand better how the library's APIs work and how they could be used.
+		\item Fixed a bug where the Rust panic handler function would log an unnecessary file name. \href{https://github.com/rust-osdev/uefi-rs/commit/5939e57f6786e60e9caf57f5aa0aa53b8bc3d83b}{(Commit)}
+	\end{itemize}
+	\vspace{-.75em}
+	\item \href{https://github.com/starship/starship}{\textbf{Starship}}
+	\vspace{-.75em}
+	\begin{itemize}
+		\itemsep -8pt{}
+		\item Contributed a feature. \href{https://github.com/starship/starship/commit/4deaa02d6fb3e72f286d822ac4c987b763c415dc}{(Commit)}
+	\end{itemize}
+	
+	
+\end{rSection}
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+% TECHINICAL STRENGTHS
+%----------------------------------------------------------------------------------------
+\vspace{-.75em}
+\begin{rSection}{SKILLS}
+\begin{description}
+	\itemsep -8pt{}
+	\item[Programming Languages] C/C++, Rust, Python, Bash, Assembly (x86\_64, ARM, RISC-V),Verilog/SystemVerilog
+	\item[Development Tools] Git, Github Actions, GNU Make, CMake, GCC, QEMU, GDB, Ghidra, Vivado
+	\item[Frameworks] Qt
+\end{description}
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{EXPERIENCE}
+	
+\textbf{Mentee - Ripes} \hfill September 2023- \\
+Linux Foundation \hfill \textit{Remote}
+\vspace{-.75em}
+\begin{itemize}
+	\itemsep -8pt{}
+	\item Worked with my two mentors and another intern to make the contributions described above, in the Open Source Contributions section.
+	\item Discussed projects, bugs, features, and ideas with my mentors.
+\end{itemize}
+
+\vspace{-.75em}
+\textbf{Assistant of IT} \hfill Summer 2018 \\
+South Shore Charter Public School \hfill \textit{Norwell, MA}
+\vspace{-.75em}
+ \begin{itemize}
+ 	\itemsep -8pt{}
+     \item Helped teachers with IT problems
+     \item Helped set up devices and networking in the new High School building
+     \item Ensured that all Ethernet sockets worked properly on the newly built floor of the High School building
+     \item Set up 100+ new Chromebooks for students
+     \item Helped teachers set up technology in their classrooms (PCs, projectors, speakers, etc.)
+ \end{itemize}
+
+\textbf{Assistant of IT} \hfill Summer 2016 \\
+South Shore Charter Public School \hfill \textit{Norwell, MA}
+ \begin{itemize}
+ 	\itemsep -8pt{}
+     \item Helped teachers with IT problems
+     \item Set up 200+ new devices for students and teachers (iPads, Macbooks, PCs, and Chromebooks)
+     \item Helped teachers set up technology in their classrooms (PCs, projectors, speakers, etc.)
+ \end{itemize}
+
+\end{rSection}
+
+\begin{rSection}{Education}
+
+{\bf UMass Lowell}, Bachelor of Information Technology - In Progress, GPA: 3.94 \hfill {Spring 2023-} \\
+{\bf Bristol Community College},  \hfill {2020-2022} \\
+Associate of Computer Information Systems - Computer Science Transfer to UMass, GPA: 3.95 \\
+{\bf Scituate High School}, High School Degree, GPA: 3.39 \hfill {2015-2019} \\
+
+\end{rSection}
+
+
+\end{document}
