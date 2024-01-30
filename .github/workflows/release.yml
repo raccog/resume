@@ -1,0 +1,50 @@
+# Partly taken from https://github.com/mortbopet/Ripes/blob/master/.github/workflows/linux-release.yml
+name: Release setup
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-20.04
+    steps:
+
+    - name: Job info
+      run: |
+        echo "GitHub Ref: ${{ github.ref }}"
+        echo "Event: ${{ github.event }}"
+
+    - name: get container ready for build
+      run: |
+        sudo apt-get update
+        sudo apt-get upgrade -y
+        DEBIAN_FRONTEND=noninteractive sudo apt-get install -y -q --force-yes \
+        texlive
+
+    - name: checkout sources
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+        fetch-depth: 0
+
+    - name: prepare release
+      run: |
+        ./build.sh
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: PDF
+        path: resume.pdf
+
+    - name: continuous release
+      uses: softprops/action-gh-release@v1
+      if: github.ref == 'refs/heads/master'
+      with:
+        prerelease: true
+        files: resume.pdf
+        tag_name: continuous
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
