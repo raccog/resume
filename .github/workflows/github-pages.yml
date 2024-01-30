@@ -28,6 +28,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: get container ready for build
+        run: |
+          sudo apt-get update
+          sudo apt-get upgrade -y
+          DEBIAN_FRONTEND=noninteractive sudo apt-get install -y -q --force-yes \
+          texlive texlive-latex-extra
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build html
@@ -39,7 +45,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: 'index.html'
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
