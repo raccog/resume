@@ -9,6 +9,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-20.04
+
+    permissions: write-all
+
     steps:
 
     - name: Job info
@@ -21,7 +24,7 @@ jobs:
         sudo apt-get update
         sudo apt-get upgrade -y
         DEBIAN_FRONTEND=noninteractive sudo apt-get install -y -q --force-yes \
-        texlive-full
+        texlive texlive-latex-extra
 
     - name: checkout sources
       uses: actions/checkout@v2
@@ -30,21 +33,19 @@ jobs:
         fetch-depth: 0
 
     - name: prepare release
-      run: |
+      run:
         ./build.sh
 
     - uses: actions/upload-artifact@v2
       with:
-        name: PDF
+        name: Resume PDF
         path: resume.pdf
 
     - name: continuous release
       uses: softprops/action-gh-release@v1
-      if: github.ref == 'refs/heads/master'
       with:
-        prerelease: true
         files: resume.pdf
-        tag_name: continuous
+        tag_name: ${{ github.ref_name }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
