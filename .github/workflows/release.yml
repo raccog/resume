@@ -41,11 +41,18 @@ jobs:
         name: Resume PDF
         path: resume.pdf
 
+    - name: get current date
+      id: time
+      uses: Kaven-Universe/github-action-current-date-time@v1
+      with:
+        format: "YYYY_MM_DD"
+
     - name: continuous release
       uses: softprops/action-gh-release@v1
       with:
         files: resume.pdf
-        tag_name: ${{ github.ref_name }}
+        name: Resume(${{ steps.time.outputs.time }})
+        tag_name: ${{ steps.time.outputs.time }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
